@@ -1,0 +1,204 @@
+# Site
+repository: culmat/cv
+favicon: images/favicon.ico
+
+# Content configuration version
+version: 2
+
+# Personal info
+name: Matthias Cullmann
+title: Software Engineer
+email: matthias.cullmann@gmail.com
+website: https://culmat.github.io/cv/
+
+# Dark Mode (true/false/never)
+darkmode: false
+
+# Social links
+twitter_username: culmat
+github_username:  culmat
+stackoverflow_username: "612123"
+# dribbble_username: jekyll
+# facebook_username: jekyll
+# flickr_username: jekyll
+#instagram_username: jameswgrant
+linkedin_username: culmat
+# xing_username: culmat
+# pinterest_username: jekyll
+#youtube_username: globalmtb
+# googleplus_username: +jekyll
+# orcid_username: 0000-0000-0000-0000
+
+# Additional icon links
+additional_links:
+ - title: Sourceforge
+   icon: fas fa-fire
+   url: https://sourceforge.net/u/culmat/
+
+# Google Analytics and Tag Manager
+# Using more than one of these may cause issues with reporting
+# gtm: "GTM-0000000"
+# gtag: "UA-00000000-0"
+# google_analytics: "UA-00000000-0"
+
+# About Section
+# about_title: About Me
+about_profile_image: images/matthias.jpg
+about_content: | 
+  Hi, my name's Matthias. Over the past 20 years, I have been developer, architect, release engineer, scrum master, project lead, tech lead and director. 
+  
+  No matter the role, I love software engineering, smiling customers and winning as a team.
+  
+  My values are <mark>Openness</mark>, <mark>Knowledge Sharing</mark>, <mark>Teamwork</mark> and <mark>Sustainability</mark>.
+
+  I also value [source code](https://github.com/culmat/cv) over slides. I like to release early and often.
+  
+  I am fluent in German, English and French.
+  
+  My current centre of interest is machine learning.
+  <style>
+  @media only screen {
+
+  .no-screen {
+    display: none !important;
+  }
+
+  }
+  </style>
+  <span class="no-screen">You are reading the print version of my CV. You might prefer the web version with additional information and links.</span>
+
+content:
+  - title: Experience
+    layout: list
+    content:
+      - layout: left
+        title: Baloise Insurance, Basel
+        link: https://baloise.com
+        sub_title: Owner BizDevOps Guild
+        caption: June 2019 - Present
+        description: | 
+            Definition and implementation of strategic journey to agile working across oneIT ( ~1000 employees) along the dimensions of automation, education and teamwork.
+            Coaching of the five Governance Guilds with over 60 members from across the group.
+            Training for >400 employees provided by the guild.
+            Project lead for virtual machine automation: lead time reduced from weeks to hours.
+            
+      - layout: left
+        sub_title: Owner Center Of Excellence Software Engineering
+        caption: February 2015 - June 2019
+        description: | 
+            Defined the vision for the evolution of the software engineering department.
+            Launched Open Source, DevOps and continuous deployment initiatives.
+            Launched insurance knowledge improvement program for developers.
+            Management of tools and processes of the competence center with 85 engineers.
+            Reinforcement of agile culture: Open Friday, open source.
+
+      - layout: left
+        sub_title: Technical Lead Java
+        caption: July 2010 - February 2015
+        description: | 
+            Definition and implementation of the technology stack.
+            Motivation and knowledge management of the java community of 40 engineers.
+            Organisation of internal and external events: java lightning, Java User Group CH, code camp, trainings.
+
+            Job interviews with all engineers.
+            IT project lead
+             - Optimisation of the build and deploy infrastructure
+             - Consolidation of the JEE server landscape
+            
+            Developer on the SOA middleware and the partner system.
+            Introduced software engineering KPI and test driven development.
+
+            Launched Baloise Open Source.
+            Reduced JEE server versions by 50% to 2 per product and replaced CVS with git.
+            
+      - layout: left
+        title: SOGETI HIGH TECH, Toulouse
+        link: https://www.sogeti.com/
+        sub_title: Project lead, technical expert for Airbus UK
+        caption: August 2008 - July 2010
+        description: |
+          Development of a client-server 3D tank model viewer with integrated fuel analysis from scratch.
+          Research on 3D ergonomics and web architecture for scientific computing.
+          Coordination of the Java centre of excellence.
+          
+          *Environment: Java 3D, Eclipse RCP, JEE, WebSphere, Hibernate, SSO, Java web start, Maven2*
+
+      - layout: left
+        sub_title: Rightshore™ manager, software development out of Bangalore/India
+        caption: October 2007 -August 2008
+        description: |
+          Leading a team of 45 engineers in embedded and application software projects. Technical coordination, tools, process, recruitment, delivery, motivation, sales support.
+          
+          Team grew from 20 to 45. Harmonization of tools and processes. Full transparency for the customer. CMMI level 5 and DO-178B audits. Knowledge transfer to the Indian organisation.
+            
+      - layout: left
+        sub_title: Developer / Project lead for Airbus UK
+        caption: October 2005 - October 2007
+        description: |
+          Development of a data base for structure test data
+           - J2EE, ANT, JavaScript development
+           - Way of working, R&D, Eclipse, JUnit, Cruise Control, WebTest, JMeter 
+          In one cycle (150 man days)
+           - reduced spent budget from 250% to 99%
+           - number of bugs in customer acceptance divided by four
+           - performance improved by x10 to x100
+           - application in production with > 100 users
+           
+          Management of a project in trouble in a transnational environment (UK, Germany, France). 800 classes, 70k lines of code
+          
+          *Environment: J2EE, Oracle, Borland Enterprise Server, CMP, TOMCAT, JSP, SiteMinder, LDAP, Velocity, AJAX (JavaScript), CVS*
+
+      - layout: left
+        title: FREELANCE, Montpellier
+        link: https://tinyurl.com/swapeo2004
+        sub_title: Developer for SWAPEO, Montpellier
+        caption: June / July 2004
+        description: | 
+          Technical design and development of the home exchange site swapeo.com.
+           - Audit
+           - Data base modelling
+           - Design and development
+          
+          Website running and profitable since its creation without major maintenance. 5K – 10k users. 
+          
+          *Environment: PHP, MySQL.*
+
+  - title: Community
+    layout: text
+    content: | 
+      .
+        - [Java Honor Roll mention](https://web.archive.org/web/20180330201610/http:/www.oracle.com/technetwork/java/javase/community/7honorroll-433557.html) for reporting a bug in [java.io.File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html)
+        - Co-founder of [BaselHack](https://baselhack.ch/)
+        - Co-founder of Java User Group Basel and former member of the board of [Java User Group Switzerland](https://www.jug.ch/board.php)
+        - Co-founder and former member of the board of [BaselOne](https://www.baselone.ch/)
+        - Co-Chair and program team member of the [XP conference 2025](https://www.agilealliance.org/xp/) in Windisch CH 
+        - Former member of the board of the [french school of Basel](https://www.efdb.ch) 
+
+  - title: Education
+    layout: text
+    content: | 
+      Bachelor of computer science, [Fernuniversität Hagen](https://www.fernuni-hagen.de/). Software engineering, internet security, distributed systems.
+      
+      Development of a Wiki module in Java. Seminar "Intelligent e-learning platforms" of the artificial intelligence lab.
+
+  - title: Contact
+    layout: text
+    content: |
+      [Beim Wasserturm 10, 4059 Basel](https://www.openstreetmap.org/directions?engine=graphhopper_car&route=%3B47.5273%2C7.5929)
+      
+      [matthias.cullmann@gmail.com](mailto:matthias.cullmann@gmail.com)
+      
+      [+41 79 699 1500](tel:+41 79 699 1500)
+# Footer
+footer_show_references: false
+# references_title: References on request (Override references text)
+
+# Build settings
+remote_theme: sproogen/resume-theme #see https://github.com/sproogen/modern-resume-theme/blob/gh-pages/_config.yml
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+ - jekyll-seo-tag
