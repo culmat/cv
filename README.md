@@ -4,38 +4,33 @@ A Jekyll-based CV/resume website using the [Modern Resume Theme](https://github.
 
 ## Prerequisites
 
-- Ruby 3.0+ (via rbenv, system Ruby, or your preferred method)
-- Bundler
+- [Colima](https://github.com/abiosoft/colima) for Docker runtime: `brew install colima docker docker-compose`
+- Start Colima: `colima start`
 
 ## Local Development
 
-1. Install dependencies (first time only):
-   ```bash
-   bundle install
-   ```
-
-2. Start Jekyll server:
+1. Start Jekyll server:
    ```bash
    ./restart.sh
    ```
 
-3. Open your browser to `http://localhost:4000`
+2. Open your browser to `http://localhost:4000`
 
-4. Make changes and restart:
+3. Make changes and restart:
    - Edit `_config.yml` or theme files
    - Stop server with `Ctrl+C`
    - Run `./restart.sh` again
 
 ## Theme Development
 
-The modern-resume-theme is loaded as a local path gem from `../modern-resume-theme`, allowing you to modify both the theme and your CV content simultaneously.
-
-To switch between theme sources (local, your fork, or original theme), use:
+Switch between theme sources:
 ```bash
-./switchtheme.sh
+./switchtheme.sh local      # Local theme development from ../modern-resume-theme
+./switchtheme.sh sproogen   # Original theme
+./switchtheme.sh culmat     # Your fork
 ```
 
-Run without parameters to see available options.
+Run `./switchtheme.sh` without parameters to see status and options.
 
 ## Deployment
 

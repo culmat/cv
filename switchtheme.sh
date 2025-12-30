@@ -173,8 +173,7 @@ if [ "$SOURCE" != "local" ]; then
   echo "📦 Running bundle install..."
   echo ""
 
-  eval "$(rbenv init - bash)" 2>/dev/null
-  bundle install
+  docker compose run --rm jekyll bundle install
 
   if [ $? -ne 0 ]; then
     echo ""

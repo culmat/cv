@@ -1,0 +1,12 @@
+services:
+  jekyll:
+    image: jekyll/jekyll:latest
+    volumes:
+      - .:/srv/jekyll              # Mount CV repo
+      - ../modern-resume-theme:/srv/modern-resume-theme  # Mount local theme
+      - ./vendor/bundle:/usr/local/bundle  # Cache gems
+    ports:
+      - "4000:4000"
+    environment:
+      - JEKYLL_ENV=development
+    command: sh -c "jekyll build && jekyll serve --no-watch --host 0.0.0.0 --verbose"
