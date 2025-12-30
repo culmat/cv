@@ -4,3 +4,7 @@
 _site
 Gemfile.lock
 *.code-workspace
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.ruby-version

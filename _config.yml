@@ -15,7 +15,7 @@ website: https://culmat.github.io/cv/
 darkmode: false
 
 # Social links
-twitter_username: culmat
+x_username: culmat
 github_username:  culmat
 stackoverflow_username: "612123"
 # dribbble_username: jekyll
@@ -194,7 +194,8 @@ footer_show_references: false
 # references_title: References on request (Override references text)
 
 # Build settings
-remote_theme: sproogen/resume-theme #see https://github.com/sproogen/modern-resume-theme/blob/gh-pages/_config.yml
+# remote_theme: sproogen/resume-theme #see https://github.com/sproogen/modern-resume-theme/blob/gh-pages/_config.yml
+theme: modern-resume-theme
 
 sass:
   sass_dir: _sass
