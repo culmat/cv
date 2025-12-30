@@ -77,7 +77,7 @@ if [ -z "$1" ]; then
   echo "After switching, the script will:"
   echo "  1. Update Gemfile and _config.yml"
   echo "  2. Delete Gemfile.lock"
-  echo "  3. Run bundle install"
+  echo "  3. Run bundle install (with caching)"
   exit 0
 fi
 
@@ -170,10 +170,10 @@ fi
 # Run bundle install (only if not local, since local doesn't need bundle)
 if [ "$SOURCE" != "local" ]; then
   echo ""
-  echo "📦 Running bundle install..."
+  echo "📦 Running bundle install (with caching)..."
   echo ""
 
-  docker compose run --rm jekyll bundle install
+  docker compose run --rm jekyll sh -c "bundle check || bundle install"
 
   if [ $? -ne 0 ]; then
     echo ""

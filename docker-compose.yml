@@ -4,9 +4,15 @@ services:
     volumes:
       - .:/srv/jekyll              # Mount CV repo
       - ../modern-resume-theme:/srv/modern-resume-theme  # Mount local theme
-      - ./vendor/bundle:/usr/local/bundle  # Cache gems
+      - bundle_cache:/usr/local/bundle  # Cache gems
     ports:
       - "4000:4000"
     environment:
       - JEKYLL_ENV=development
-    command: sh -c "jekyll build && jekyll serve --no-watch --host 0.0.0.0 --verbose"
+      - BUNDLE_PATH=/usr/local/bundle
+      - BUNDLE_BIN=/usr/local/bundle/bin
+      - BUNDLE_APP_CONFIG=/usr/local/bundle
+    command: sh -c "bundle check || bundle install && jekyll build && jekyll serve --no-watch --host 0.0.0.0 --verbose"
+
+volumes:
+  bundle_cache:
