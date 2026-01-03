@@ -43,7 +43,7 @@ additional_links:
 
 # About Section
 # about_title: About Me
-about_profile_image: images/matthias.jpg
+about_profile_image: images/matthias.png
 about_content: | 
   Hi, my name's Matthias. Over the past 20 years, I have been developer, architect, release engineer, scrum master, project lead, tech lead and director. 
   
@@ -74,8 +74,14 @@ content:
       - layout: left
         title: Baloise Insurance, Basel
         link: https://baloise.com
+        sub_title: Senior AI Consultant
+        caption: November 2024 - Present
+        description: | 
+            Blnk description.
+
+      - layout: left
         sub_title: Owner BizDevOps Guild
-        caption: June 2019 - Present
+        caption: June 2019 - November 2024
         description: | 
             Definition and implementation of strategic journey to agile working across oneIT ( ~1000 employees) along the dimensions of automation, education and teamwork.
             Coaching of the five Governance Guilds with over 60 members from across the group.
@@ -193,7 +199,7 @@ footer_show_references: false
 # references_title: References on request (Override references text)
 
 # Build settings
-remote_theme: culmat/modern-resume-theme
+theme: modern-resume-theme
 
 sass:
   sass_dir: _sass
