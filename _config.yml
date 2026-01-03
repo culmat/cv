@@ -47,15 +47,14 @@ about_profile_image: images/matthias_2026.jpg
 about_content: |
   Hi, my name's Matthias. Over the past 20 years, I have been developer, architect, release engineer, scrum master, project lead, tech lead and director. 
 
-  No matter the role, I love software engineering, smiling customers and winning as a team.
-
+  I love software engineering, smiling customers and winning as a team.
   My values are <mark>Openness</mark>, <mark>Knowledge Sharing</mark>, <mark>Teamwork</mark> and <mark>Sustainability</mark>.
 
-  I also value [source code](https://github.com/culmat/cv/blob/gh-pages/_config.yml#L54) over slides. I like to release early and often.
+  I also value [source code](https://github.com/culmat/cv/blob/gh-pages/_config.yml#L54) over slides. I release early and often.
 
   I am fluent in German, English and French.
 
-  My current centre of interest is machine learning.
+  I'm currently dedicating my spare time to .
   <style>
   @media only screen {
 
@@ -79,22 +78,22 @@ content:
         description: |
           Evaluation, prototyping and implementation support of AI platform, tools and technologies - Baloise GPT, MS Copilot, Copilot Studio, Github Copilot, internal OpenAI services.
 
-          Training and coaching of teams on AI tools and best practices - several hundreds participants.
+          Trained and coached teams on AI tools and best practices - several hundreds participants.
 
-          AI use cases, from protoype to production: net promoter score analysis, terms and conditions bot, vehicle counter offer - winner of [Swiss Insurance Innovation Award 2025](https://www.handelszeitung.ch/insurance/baloise-punktet-als-eines-der-innovativsten-unternehmen-der-versicherungsbranche-880945), generating 30 offers per day.
+          AI use cases, from idea to production: net promoter score analysis, terms and conditions bot, vehicle counter offer - winner of [Swiss Insurance Innovation Award 2025](https://www.handelszeitung.ch/insurance/baloise-punktet-als-eines-der-innovativsten-unternehmen-der-versicherungsbranche-880945), generating 30 offers per day.
 
-          Engineering and user community management: promtathon organisation.
+          Engineering and user community management: organized promtathons.
       - layout: left
         sub_title: Owner BizDevOps Guild
         caption: June 2019 - November 2024
         description: |
-          Definition and implementation of strategic journey to agile working across oneIT ( ~1000 employees) along the dimensions of automation, education and teamwork.
+          Defined and implemented strategic journey to agile working across oneIT ( ~1000 employees) along the dimensions of automation, education and teamwork.
 
-          Coaching of the five Governance Guilds with over 60 members from across the group.
+          Coached the five Governance Guilds with over 60 members from across the group.
 
           Training for >400 employees provided by the guild.
 
-          Project lead for virtual machine automation: lead time reduced from weeks to hours.
+          Project lead for virtual machine automation: reduced lead time from weeks to hours.
 
       - layout: left
         sub_title: Owner Center Of Excellence Software Engineering
