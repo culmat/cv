@@ -43,18 +43,19 @@ additional_links:
 
 # About Section
 # about_title: About Me
-about_profile_image: images/matthias_2026.jpg
+about_profile_image: images/matthias_2026_web.jpg
 about_content: |
   Hi, my name's Matthias. Over the past 20 years, I have been developer, architect, release engineer, scrum master, project lead, tech lead and director. 
 
   I love software engineering, smiling customers and winning as a team.
+
   My values are <mark>Openness</mark>, <mark>Knowledge Sharing</mark>, <mark>Teamwork</mark> and <mark>Sustainability</mark>.
 
-  I also value [source code](https://github.com/culmat/cv/blob/gh-pages/_config.yml#L54) over slides. I release early and often.
+  I also value [source code](https://github.com/culmat/cv/blob/gh-pages/_config.yml#L53) over slides. I release early and often.
 
   I am fluent in German, English and French.
 
-  I'm currently dedicating my spare time to .
+  Currently I am dedicating my spare energy to my [confluence digital signature plugin](https://github.com/culmat/digital-signature) and a [litter picking app](https://github.com/Gabriele-Mangione/Delitter).
   <style>
   @media only screen {
 
@@ -80,7 +81,7 @@ content:
 
           Trained and coached teams on AI tools and best practices - several hundreds participants.
 
-          AI use cases, from idea to production: net promoter score analysis, terms and conditions bot, vehicle counter offer - winner of [Swiss Insurance Innovation Award 2025](https://www.handelszeitung.ch/insurance/baloise-punktet-als-eines-der-innovativsten-unternehmen-der-versicherungsbranche-880945), generating 30 offers per day.
+          AI use cases, from idea to production: net promoter score analysis, terms and conditions bot, vehicle counter offer - winner of [Swiss Insurance Innovation Award 2025](https://web.archive.org/web/20260103081444/https://www.handelszeitung.ch/insurance/baloise-punktet-als-eines-der-innovativsten-unternehmen-der-versicherungsbranche-880945), generating 30 offers per day.
 
           Engineering and user community management: organized promtathons.
       - layout: left
