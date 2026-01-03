@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Detect sed type for cross-platform compatibility
+if sed --version 2>/dev/null | grep -q GNU; then
+  SED_INPLACE="sed -i"
+else
+  SED_INPLACE="sed -i ''"
+fi
+
 # Switch modern-resume-theme source in Gemfile and _config.yml
 
 if [ -z "$1" ]; then
@@ -92,6 +99,12 @@ cp _config.yml _config.yml.backup
 
 # Determine the new configurations
 if [ "$SOURCE" = "local" ]; then
+  if [ ! -d "../modern-resume-theme" ]; then
+    echo "❌ Local theme directory ../modern-resume-theme not found"
+    echo "Please clone or checkout the theme to ../modern-resume-theme"
+    rm Gemfile.backup _config.yml.backup
+    exit 1
+  fi
   GEM_LINE='gem "modern-resume-theme", path: "../modern-resume-theme"'
   CONFIG_LINE='theme: modern-resume-theme'
   REMOTE_LINE=''
@@ -105,12 +118,12 @@ fi
 
 # Update Gemfile
 # First, remove any existing modern-resume-theme lines
-sed -i '' '/modern-resume-theme/d' Gemfile
+$SED_INPLACE '/modern-resume-theme/d' Gemfile
 
 # Then add the new line after github-pages gem (if GEM_LINE is not empty)
 if [ -n "$GEM_LINE" ]; then
   if grep -q 'gem "github-pages"' Gemfile; then
-    sed -i '' '/gem "github-pages"/a\
+    $SED_INPLACE '/gem "github-pages"/a\
 '"$GEM_LINE"'
 ' Gemfile
     echo "✓ Updated Gemfile:"
@@ -126,20 +139,20 @@ fi
 
 # Update _config.yml
 # First, remove any existing theme/remote_theme lines in the build settings section
-sed -i '' '/^theme: modern-resume-theme/d' _config.yml
-sed -i '' '/^remote_theme:/d' _config.yml
-sed -i '' '/^# theme: modern-resume-theme/d' _config.yml
-sed -i '' '/^# remote_theme:/d' _config.yml
+$SED_INPLACE '/^theme: modern-resume-theme/d' _config.yml
+$SED_INPLACE '/^remote_theme:/d' _config.yml
+$SED_INPLACE '/^# theme: modern-resume-theme/d' _config.yml
+$SED_INPLACE '/^# remote_theme:/d' _config.yml
 
 # Then add the new lines in the build settings section
 if grep -q '# Build settings' _config.yml; then
   if [ -n "$CONFIG_LINE" ]; then
-    sed -i '' '/# Build settings/a\
+    $SED_INPLACE '/# Build settings/a\
 '"$CONFIG_LINE"'
 ' _config.yml
   fi
   if [ -n "$REMOTE_LINE" ]; then
-    sed -i '' '/# Build settings/a\
+    $SED_INPLACE '/# Build settings/a\
 '"$REMOTE_LINE"'
 ' _config.yml
   fi
@@ -171,6 +184,7 @@ fi
 if [ "$SOURCE" != "local" ]; then
   echo ""
   echo "📦 Running bundle install (with caching)..."
+  echo "This may take a minute or two depending on your internet connection and system."
   echo ""
 
   docker compose run --rm jekyll sh -c "bundle check || bundle install"
