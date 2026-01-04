@@ -49,6 +49,12 @@ if [ -d "../modern-resume-theme/_site" ]; then
   echo "✓ Cleaned theme _site directory"
 fi
 
+# Install dependencies
+echo "Installing dependencies..."
+mkdir -p ~/.bundle/cache
+export BUNDLE_CACHE_PATH=~/.bundle/cache
+bundle install --path vendor/bundle
+
 # Start server with livereload
 echo "✓ Starting Jekyll server with hotreload..."
 echo "   Server will be available at: http://localhost:4000"
