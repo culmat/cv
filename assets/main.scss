@@ -2,9 +2,19 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
+// Override font and typography variables before importing theme
 $font-family: 'Manrope', sans-serif;
 $font-url: 'https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap';
 
+// Modern typography adjustments
+$paragraph-font-size: 1.5rem;          // Reduced from 1.6rem but still readable
+$body-line-height: 1.6;                // Increased from 1.5 (better readability)
+$heading-letter-spacing: 0.01em;       // Subtle tracking for headings
+
+// Cleaner section borders
+$section-border-style: solid;          // Changed from dashed
+$section-border-width: 1px;            // Thinner border
+$section-border-color: #e0e0e0;        // Lighter, more subtle
 
 @import 'modern-resume-theme';
 
