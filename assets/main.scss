@@ -26,7 +26,7 @@ $section-border-color: #e0e0e0;        // Lighter, more subtle
 @media print {
   .layout {
     .details {
-      width: 25% !important;
+      width: 33% !important;
       float: left;
 
       h4, p {
@@ -35,17 +35,17 @@ $section-border-color: #e0e0e0;        // Lighter, more subtle
     }
 
     .content {
-      width: 75% !important;
+      width: 67% !important;
       float: left;
     }
   }
 
   // Override col-print-12 for layout columns
   .layout .col-print-12.details {
-    width: 25% !important;
+    width: 33% !important;
   }
 
   .layout .col-print-12.content {
-    width: 75% !important;
+    width: 67% !important;
   }
 }
