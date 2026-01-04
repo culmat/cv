@@ -21,3 +21,31 @@ $section-border-color: #e0e0e0;        // Lighter, more subtle
 .layout .details {
   justify-content: flex-start;
 }
+
+// Print layout improvements - narrower left column
+@media print {
+  .layout {
+    .details {
+      width: 25% !important;
+      float: left;
+
+      h4, p {
+        font-size: 0.85rem;
+      }
+    }
+
+    .content {
+      width: 75% !important;
+      float: left;
+    }
+  }
+
+  // Override col-print-12 for layout columns
+  .layout .col-print-12.details {
+    width: 25% !important;
+  }
+
+  .layout .col-print-12.content {
+    width: 75% !important;
+  }
+}
