@@ -1,0 +1,22 @@
+{
+  "name": "cv-11ty",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve --input=src --output=dist",
+    "build": "eleventy --input=src --output=dist",
+    "serve": "bunx serve dist",
+    "validate:content": "bun scripts/validate-content.mjs",
+    "print:smoke": "bun scripts/print-smoke.mjs",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.1",
+    "markdown-it": "^14.1.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.59.1"
+  }
+}

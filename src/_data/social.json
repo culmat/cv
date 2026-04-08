@@ -1,0 +1,29 @@
+{
+  "links": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/culmat",
+      "icon": "fab fa-github"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/culmat",
+      "icon": "fab fa-linkedin"
+    },
+    {
+      "title": "Stack Overflow",
+      "url": "https://stackoverflow.com/users/612123",
+      "icon": "fab fa-stack-overflow"
+    },
+    {
+      "title": "Sourceforge",
+      "icon": "fas fa-fire",
+      "url": "https://sourceforge.net/u/culmat/"
+    },
+    {
+      "title": "Codeberg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Codeberg_Logo.svg",
+      "url": "https://codeberg.org/culmat"
+    }
+  ]
+}

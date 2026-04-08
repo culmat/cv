@@ -1,0 +1,37 @@
+<header class="header">
+  <div class="header-name">
+    <h1>{{ cv.site.name }}</h1>
+  </div>
+
+  <ul class="social-links" aria-label="Social links">
+    {% for link in cv.social %}
+      <li>
+        <a href="{{ link.url }}" target="_blank" rel="noreferrer" title="{{ link.title }}" class="social-icon-link social-icon-{{ link.title | lower | replace(' ', '-') }}">
+          {% if link.kind == "image" %}
+            <img class="social-image" src="{{ link.imageUrl }}" alt="{{ link.title }}" />
+          {% else %}
+            <i class="{{ link.icon }}" aria-hidden="true"></i>
+          {% endif %}
+          <span class="sr-only">{{ link.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if cv.site.image %}
+    <img class="profile-image" src="/{{ cv.site.image }}" alt="{{ cv.site.name }}" />
+  {% endif %}
+
+  <div class="header-details">
+    <p class="subtitle">{{ cv.site.title }}</p>
+    <div class="meta">
+      <a href="mailto:{{ cv.site.email }}">{{ cv.site.email }}</a>
+      {% if cv.site.phone %}
+        <a href="tel:{{ cv.site.phone | replace(' ', '') }}">{{ cv.site.phone }}</a>
+      {% endif %}
+      {% if cv.site.website %}
+        <a href="{{ cv.site.website }}">{{ cv.site.website }}</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+---
+
+<main class="page">
+  {% include "partials/header.njk" %}
+
+  {% set heading = cv.sections.about.title %}
+  {% set bodyHtml = cv.sections.about.bodyHtml %}
+  {% set kind = "text" %}
+  {% include "partials/section.njk" %}
+
+  {% set heading = "Experience" %}
+  {% set items = cv.sections.experience %}
+  {% set kind = "experience" %}
+  {% include "partials/section.njk" %}
+
+  {% set heading = cv.sections.community.title %}
+  {% set bodyHtml = cv.sections.community.bodyHtml %}
+  {% set kind = "text" %}
+  {% include "partials/section.njk" %}
+
+  {% set heading = cv.sections.education.title %}
+  {% set bodyHtml = cv.sections.education.bodyHtml %}
+  {% set kind = "text" %}
+  {% include "partials/section.njk" %}
+
+  {% set heading = cv.sections.contact.title %}
+  {% set bodyHtml = cv.sections.contact.bodyHtml %}
+  {% set kind = "text" %}
+  {% include "partials/section.njk" %}
+</main>

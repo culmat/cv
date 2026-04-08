@@ -1,0 +1,28 @@
+<section class="section">
+  <h2>{{ heading }}</h2>
+
+  {% if kind == "text" %}
+    <div class="richtext">{{ bodyHtml | safe }}</div>
+  {% endif %}
+
+  {% if kind == "experience" %}
+    <div class="experience-list">
+      {% for item in items %}
+        <article class="experience-item">
+          <div class="experience-meta">
+            <h3>{{ item.title }}</h3>
+            <p>
+              {% if item.organizationLink %}
+                <a href="{{ item.organizationLink }}">{{ item.organization }}</a>
+              {% else %}
+                {{ item.organization }}
+              {% endif %}
+            </p>
+            <p>{{ item.period }}</p>
+          </div>
+          <div class="richtext">{{ item.bodyHtml | safe }}</div>
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
