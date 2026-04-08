@@ -74,8 +74,8 @@ content:
     layout: list
     content:
       - layout: left
-        title: Baloise Insurance, Basel
-        link: https://baloise.com
+        title: Helvetia, Basel
+        link: https://helvetia.com
         sub_title: Senior AI Consultant
         caption: November 2024 - Present
         description: |
