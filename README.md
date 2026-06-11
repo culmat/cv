@@ -4,7 +4,7 @@
 
 ```bash
 bun i
-bun run validate:content
+bun validate:content
 bun dev
 ```
 
@@ -12,7 +12,7 @@ bun dev
 
 ```bash
 bun run build
-bun run print:smoke
+bun print:smoke
 ```
 
 The web CV is available at `/` and the print optimized version at `/print/`.
