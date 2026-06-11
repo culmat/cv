@@ -29,7 +29,8 @@
   }
 
   .section,
-  .experience-item {
+  .experience-item,
+  .qr-notice {
     break-inside: avoid;
   }
 
