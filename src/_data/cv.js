@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
 
-import { normalizeSocialLinks } from "../../scripts/lib/cv-model.mjs";
+import { buildVCard, normalizeSocialLinks } from "../../scripts/lib/cv-model.mjs";
 
 const ROOT = resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const CONTENT = resolve(ROOT, "content");
@@ -64,9 +64,12 @@ export default async function () {
     readExperience(),
   ]);
 
+  const normalizedSocial = normalizeSocialLinks(social.links);
+
   return {
     site,
-    social: normalizeSocialLinks(social.links),
+    social: normalizedSocial,
+    vcard: buildVCard({ site, social: normalizedSocial, role: experience[0] }),
     sections: {
       about,
       experience,

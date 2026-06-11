@@ -3,5 +3,15 @@
   "title": "",
   "email": "matthias.cullmann@gmail.com",
   "website": "https://culmat.github.io/cv/",
-  "image": "images/matthias_2026_web.jpg"
+  "image": "images/matthias_2026_web.jpg",
+  "contact": {
+    "phone": "+41 79 699 1500",
+    "address": {
+      "street": "Beim Wasserturm 10",
+      "postalCode": "4059",
+      "city": "Basel",
+      "country": "Switzerland"
+    },
+    "birthday": ""
+  }
 }

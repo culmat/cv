@@ -22,6 +22,88 @@ export function formatPeriod(start, end) {
   return startLabel || endLabel;
 }
 
+// Escape a single vCard text value per RFC 6350 §3.4: backslash, comma,
+// semicolon and newlines are the reserved characters.
+function escapeVCardValue(value) {
+  return String(value ?? "")
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
+}
+
+// Build a vCard 3.0 string (broadest device support) from CV data. Pure: no I/O,
+// no embedded photo (keeps the QR low-density and scannable). `social` is the
+// normalized link list; `role` is the most recent experience entry.
+export function buildVCard({ site, social = [], role = {} } = {}) {
+  const name = site?.name || "";
+  const [firstName = "", ...rest] = name.trim().split(WHITESPACE);
+  const lastName = rest.join(" ");
+
+  const lines = ["BEGIN:VCARD", "VERSION:3.0"];
+
+  lines.push(`N:${escapeVCardValue(lastName)};${escapeVCardValue(firstName)};;;`);
+  lines.push(`FN:${escapeVCardValue(name)}`);
+
+  if (role?.organization) {
+    lines.push(`ORG:${escapeVCardValue(role.organization)}`);
+  }
+  if (role?.title) {
+    lines.push(`TITLE:${escapeVCardValue(role.title)}`);
+  }
+
+  if (site?.email) {
+    lines.push(`EMAIL;TYPE=INTERNET:${escapeVCardValue(site.email)}`);
+  }
+
+  const phone = site?.contact?.phone;
+  if (phone) {
+    lines.push(`TEL;TYPE=CELL:${escapeVCardValue(phone)}`);
+  }
+
+  const address = site?.contact?.address;
+  if (address && (address.street || address.city)) {
+    // ADR: po-box;extended;street;locality;region;postal-code;country
+    const adr = [
+      "",
+      "",
+      address.street || "",
+      address.city || "",
+      address.region || "",
+      address.postalCode || "",
+      address.country || "",
+    ]
+      .map(escapeVCardValue)
+      .join(";");
+    lines.push(`ADR;TYPE=HOME:${adr}`);
+  }
+
+  const birthday = site?.contact?.birthday;
+  if (birthday) {
+    lines.push(`BDAY:${escapeVCardValue(birthday)}`);
+  }
+
+  if (site?.website) {
+    lines.push(`URL:${escapeVCardValue(site.website)}`);
+  }
+
+  // Each social profile as a labelled URL using Apple's item-grouping syntax:
+  // the X-ABLabel shows the service name on Apple devices, and the bare URL
+  // still imports everywhere else.
+  social.forEach((link, index) => {
+    if (!link?.url) return;
+    const item = `item${index + 1}`;
+    lines.push(`${item}.URL:${escapeVCardValue(link.url)}`);
+    if (link.title) {
+      lines.push(`${item}.X-ABLabel:${escapeVCardValue(link.title)}`);
+    }
+  });
+
+  lines.push("END:VCARD");
+
+  return lines.join("\r\n");
+}
+
 export function normalizeSocialLinks(links) {
   if (!Array.isArray(links)) {
     return [];

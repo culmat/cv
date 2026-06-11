@@ -1,0 +1,47 @@
+<details class="contact-card no-print" data-contact-card>
+  <summary>Save my contact</summary>
+  <div class="contact-card-body">
+    <a class="contact-card-download" href="/matthias-cullmann.vcf" download>
+      <i class="fas fa-address-card" aria-hidden="true"></i> Download contact card (.vcf)
+    </a>
+    <div class="contact-card-qr">
+      {% qrcode cv.vcard, "L" %}
+      <p>Scan with your phone's camera to add me to your contacts.</p>
+    </div>
+  </div>
+  <script>
+    // Progressive enhancement: a touch-only device (phone/tablet) can't scan its
+    // own screen, so hide the QR and keep the download. Desktop and anything
+    // ambiguous (also the no-JS fallback) keep both paths.
+    (function () {
+      var el = document.currentScript.closest("[data-contact-card]");
+      if (!el || !window.matchMedia) return;
+      var touchOnly = matchMedia("(pointer: coarse)").matches && matchMedia("(hover: none)").matches;
+
+      // Touch device: hide the QR (can't scan its own screen); the manual link
+      // stays as the download action.
+      if (touchOnly) {
+        el.classList.add("is-mobile");
+        return;
+      }
+
+      // Desktop: the summary doubles as the download trigger, so the explicit
+      // link is redundant -> .is-desktop hides it via CSS. The first time the
+      // panel opens the .vcf downloads once; every later press just toggles the
+      // QR. The click handler runs inside the user gesture, so the browser
+      // allows the programmatic download (works even though the link is hidden).
+      el.classList.add("is-desktop");
+      var summary = el.querySelector("summary");
+      var link = el.querySelector(".contact-card-download");
+      var downloaded = false;
+      if (summary && link) {
+        summary.addEventListener("click", function () {
+          if (!el.open && !downloaded) {
+            downloaded = true;
+            link.click();
+          }
+        });
+      }
+    })();
+  </script>
+</details>

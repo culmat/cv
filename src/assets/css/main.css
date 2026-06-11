@@ -162,6 +162,100 @@ mark {
   }
 }
 
+/* Screen-only content (.no-print) is hidden in print.css / body.is-print scopes. */
+
+.contact-card {
+  margin-top: 1.8rem;
+}
+
+.contact-card > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--surface);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.contact-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.contact-card > summary::before {
+  content: "\f2bb"; /* fa-address-card */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.contact-card > summary:hover {
+  background: #f1f6fa;
+  border-color: var(--accent);
+}
+
+.contact-card-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-card-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.contact-card-download:hover {
+  text-decoration: none;
+  opacity: 0.92;
+}
+
+.contact-card-qr {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 28rem;
+}
+
+.contact-card-qr svg {
+  display: block;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+}
+
+.contact-card-qr p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Device-adaptive visibility (set by the partial's inline script): touch-only
+   devices can't scan their own screen, so hide the QR and keep the download.
+   Desktop / no-JS / ambiguous keep both paths visible. */
+.contact-card.is-mobile .contact-card-qr {
+  display: none;
+}
+
+/* Desktop: the summary button auto-downloads on first open, so the explicit
+   link is redundant — the QR is the only thing the panel needs to show. */
+.contact-card.is-desktop .contact-card-download {
+  display: none;
+}
+
 .qr-notice {
   display: flex;
   align-items: center;

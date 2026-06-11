@@ -47,11 +47,19 @@
     filter: grayscale(100%);
     opacity: 1;
   }
+
+  .no-print {
+    display: none !important;
+  }
 }
 
 /* Apply the exact same styles on screen for the /print/ route */
 body.is-print {
   background: white;
+}
+
+body.is-print .no-print {
+  display: none !important;
 }
 
 body.is-print .page {
