@@ -10,7 +10,7 @@ Over the past 20 years, I have been developer, architect, release engineer, scru
 
 My values are <mark>Openness</mark>, <mark>Knowledge Sharing</mark>, <mark>Teamwork</mark> and <mark>Sustainability</mark>.
 
-I also value [source code](https://github.com/culmat/cv/blob/gh-pages/_config.yml#L53) over slides. I release early and often.
+I also value [source code](https://github.com/culmat/cv/) over slides. I release early and often.
 
 I am fluent in German, English and French.
 

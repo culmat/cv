@@ -4,9 +4,12 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve --input=src --output=dist",
-    "build": "eleventy --input=src --output=dist",
+    "build": "rm -rf dist && eleventy --input=src --output=dist",
     "serve": "bunx serve dist",
     "validate:content": "bun scripts/validate-content.mjs",
+    "check:links": "bun scripts/check-links.mjs",
+    "check:links:external": "bun scripts/check-links-external.mjs",
+    "check": "bun run validate:content && bun run build && bun run check:links && bun run print:smoke && bun test && (bun run check:links:external || true)",
     "print:smoke": "bun scripts/print-smoke.mjs",
     "test": "bun test"
   },

@@ -43,6 +43,9 @@ jobs:
       - name: Build site
         run: bun run build
 
+      - name: Check internal links
+        run: bun run check:links
+
       - name: Print smoke test
         run: bun run print:smoke
 

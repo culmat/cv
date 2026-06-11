@@ -8,5 +8,5 @@ permalink: false
 - Co-founder of [BaselHack](https://baselhack.ch/)
 - Co-founder of Java User Group Basel and former member of the board of [Java User Group Switzerland](https://www.jug.ch/board.php)
 - Co-founder and former member of the board of [BaselOne](https://www.baselone.ch/)
-- Co-Chair and program team member of the [XP conference](https://xpconference.org/) 2025 in Windisch CH 
+- Co-Chair and program team member of the [XP conference](https://conf.researchr.org/home/xp-2025) 2025 in Windisch CH 
 - Former member of the board of the [french school of Basel](https://www.efdb.ch)

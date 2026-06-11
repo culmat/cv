@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Pre-push validation gate. Enable once with:
+#   git config core.hooksPath .githooks
+#
+# Blocking (fast, deterministic, offline) checks abort the push on failure.
+# The external link check is advisory only — it reports issues but never blocks.
+set -euo pipefail
+
+echo "▶ pre-push: running unit tests"
+bun test
+
+echo "▶ pre-push: validating content"
+bun run validate:content
+
+echo "▶ pre-push: building site"
+bun run build
+
+echo "▶ pre-push: checking internal links"
+bun run check:links
+
+echo "▶ pre-push: checking external links (warn-only)"
+if ! bun run check:links:external; then
+  echo "⚠️  external link check reported issues (not blocking push)"
+fi
+
+echo "✓ pre-push checks passed"

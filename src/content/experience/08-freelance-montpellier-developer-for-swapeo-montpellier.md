@@ -7,7 +7,7 @@ order: 8
 permalink: false
 ---
 
-Technical design and development of the home exchange site swapeo.com.
+Technical design and development of the home exchange site Swapeo.
  - Audit
  - Data base modelling
  - Design and development
