@@ -2,13 +2,15 @@
 layout: layouts/base.njk
 ---
 
-<main class="page">
+<main class="page h-resume">
   {% include "partials/header.njk" %}
 
   {% set heading = cv.sections.about.title %}
   {% set bodyHtml = cv.sections.about.bodyHtml %}
   {% set kind = "text" %}
+  {% set mfClass = "p-summary" %}
   {% include "partials/section.njk" %}
+  {% set mfClass = null %}
 
   {% include "partials/qr.njk" %}
 
@@ -28,8 +30,7 @@ layout: layouts/base.njk
   {% include "partials/section.njk" %}
 
   {% set heading = cv.sections.contact.title %}
-  {% set bodyHtml = cv.sections.contact.bodyHtml %}
-  {% set kind = "text" %}
+  {% set kind = "contact" %}
   {% include "partials/section.njk" %}
 
   {% include "partials/contact-card.njk" %}

@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 
 import {
+  buildJsonLd,
   buildVCard,
   formatPeriod,
   normalizeSocialLinks,
@@ -85,5 +86,78 @@ describe("buildVCard", () => {
     const withBday = { ...site, contact: { ...site.contact, birthday: "1980-07-15" } };
     const card = buildVCard({ site: withBday, social, role });
     expect(card).toContain("BDAY:1980-07-15");
+  });
+});
+
+describe("buildJsonLd", () => {
+  const site = {
+    name: "Matthias Cullmann",
+    title: "Senior AI Consultant",
+    email: "matthias.cullmann@gmail.com",
+    website: "https://culmat.github.io/cv/",
+    description: "Senior AI Consultant in Basel.",
+    contact: {
+      phone: "+41 79 699 1500",
+      address: {
+        street: "Beim Wasserturm 10",
+        postalCode: "4059",
+        city: "Basel",
+        country: "Switzerland",
+        geo: { latitude: 47.5273, longitude: 7.5929 },
+      },
+    },
+  };
+  const social = [
+    { title: "GitHub", url: "https://github.com/culmat" },
+    { title: "LinkedIn", url: "https://www.linkedin.com/in/culmat" },
+  ];
+  const role = { organization: "Helvetia, Basel", organizationLink: "https://helvetia.com" };
+  const imageAbsolute = "https://culmat.github.io/cv/images/matthias_2026_web.jpg";
+
+  test("emits a ProfilePage wrapping a Person with core fields", () => {
+    const ld = buildJsonLd({ site, social, imageAbsolute, role });
+    expect(ld["@context"]).toBe("https://schema.org");
+    expect(ld["@type"]).toBe("ProfilePage");
+    const person = ld.mainEntity;
+    expect(person["@type"]).toBe("Person");
+    expect(person.name).toBe("Matthias Cullmann");
+    expect(person.jobTitle).toBe("Senior AI Consultant");
+    expect(person.email).toBe("matthias.cullmann@gmail.com");
+    expect(person.telephone).toBe("+41 79 699 1500");
+    expect(person.image).toBe(imageAbsolute);
+  });
+
+  test("maps the address and geo to PostalAddress/GeoCoordinates", () => {
+    const { mainEntity } = buildJsonLd({ site, social, imageAbsolute, role });
+    expect(mainEntity.address).toEqual({
+      "@type": "PostalAddress",
+      streetAddress: "Beim Wasserturm 10",
+      postalCode: "4059",
+      addressLocality: "Basel",
+      addressCountry: "Switzerland",
+      geo: { "@type": "GeoCoordinates", latitude: 47.5273, longitude: 7.5929 },
+    });
+  });
+
+  test("lists social URLs as sameAs and the current role as worksFor", () => {
+    const { mainEntity } = buildJsonLd({ site, social, imageAbsolute, role });
+    expect(mainEntity.sameAs).toEqual([
+      "https://github.com/culmat",
+      "https://www.linkedin.com/in/culmat",
+    ]);
+    expect(mainEntity.worksFor).toEqual({
+      "@type": "Organization",
+      name: "Helvetia, Basel",
+      url: "https://helvetia.com",
+    });
+  });
+
+  test("omits optional fields when data is absent", () => {
+    const { mainEntity } = buildJsonLd({ site: { name: "X", website: "https://x.test/" } });
+    expect(mainEntity).not.toHaveProperty("address");
+    expect(mainEntity).not.toHaveProperty("sameAs");
+    expect(mainEntity).not.toHaveProperty("worksFor");
+    expect(mainEntity).not.toHaveProperty("jobTitle");
+    expect(mainEntity).not.toHaveProperty("image");
   });
 });

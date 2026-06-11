@@ -4,10 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ title or cv.site.name }}</title>
+    {% if cv.site.description %}<meta name="description" content="{{ cv.site.description }}" />{% endif %}
+    <meta name="author" content="{{ cv.site.name }}" />
+    {% if cv.site.website %}<link rel="canonical" href="{{ cv.site.website }}" />{% endif %}
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="{{ cv.site.name }}" />
+    {% if cv.site.description %}<meta property="og:description" content="{{ cv.site.description }}" />{% endif %}
+    {% if cv.site.website %}<meta property="og:url" content="{{ cv.site.website }}" />{% endif %}
+    {% if cv.imageAbsolute %}<meta property="og:image" content="{{ cv.imageAbsolute }}" />{% endif %}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/print.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    {% if cv.jsonLd %}<script type="application/ld+json">{{ cv.jsonLd | dump | safe }}</script>{% endif %}
   </head>
   <body class="{% if isPrint %}is-print{% endif %}">
     {{ content | safe }}

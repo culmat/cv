@@ -1,16 +1,19 @@
 {
   "name": "Matthias Cullmann",
-  "title": "",
+  "title": "Senior AI Consultant",
   "email": "matthias.cullmann@gmail.com",
   "website": "https://culmat.github.io/cv/",
   "image": "images/matthias_2026_web.jpg",
+  "description": "Living in Basel.",
   "contact": {
     "phone": "+41 79 699 1500",
     "address": {
       "street": "Beim Wasserturm 10",
       "postalCode": "4059",
       "city": "Basel",
-      "country": "Switzerland"
+      "country": "Switzerland",
+      "mapUrl": "https://www.openstreetmap.org/directions?engine=graphhopper_car&route=%3B47.5273%2C7.5929",
+      "geo": { "latitude": 47.5273, "longitude": 7.5929 }
     },
     "birthday": ""
   }

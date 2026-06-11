@@ -2,27 +2,48 @@
   <h2>{{ heading }}</h2>
 
   {% if kind == "text" %}
-    <div class="richtext">{{ bodyHtml | safe }}</div>
+    <div class="richtext{% if mfClass %} {{ mfClass }}{% endif %}">{{ bodyHtml | safe }}</div>
   {% endif %}
 
   {% if kind == "experience" %}
     <div class="experience-list">
       {% for item in items %}
-        <article class="experience-item">
+        <article class="experience-item h-event p-experience">
           <div class="experience-meta">
-            <h3>{{ item.title }}</h3>
-            <p>
+            <h3 class="p-name">{{ item.title }}</h3>
+            <p class="p-location h-card">
               {% if item.organizationLink %}
-                <a href="{{ item.organizationLink }}">{{ item.organization }}</a>
+                <a class="u-url p-name" href="{{ item.organizationLink }}">{{ item.organization }}</a>
               {% else %}
-                {{ item.organization }}
+                <span class="p-name">{{ item.organization }}</span>
               {% endif %}
             </p>
-            <p>{{ item.period }}</p>
+            <p class="dt-start">{{ item.period }}</p>
           </div>
-          <div class="richtext">{{ item.bodyHtml | safe }}</div>
+          <div class="richtext e-description">{{ item.bodyHtml | safe }}</div>
         </article>
       {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if kind == "contact" %}
+    {% set address = cv.site.contact.address %}
+    <div class="richtext">
+      {% if address %}
+        <p class="h-adr">
+          {% if address.mapUrl %}
+            <a class="p-street-address" href="{{ address.mapUrl }}">{{ address.street }}</a>,
+          {% else %}
+            <span class="p-street-address">{{ address.street }}</span>,
+          {% endif %}
+          <span class="p-postal-code">{{ address.postalCode }}</span>
+          <span class="p-locality">{{ address.city }}</span>
+        </p>
+      {% endif %}
+      <p><a href="mailto:{{ cv.site.email }}">{{ cv.site.email }}</a></p>
+      {% if cv.site.contact.phone %}
+        <p><a href="tel:{{ cv.site.contact.phone | replace(' ', '') }}">{{ cv.site.contact.phone }}</a></p>
+      {% endif %}
     </div>
   {% endif %}
 </section>

@@ -1,12 +1,12 @@
-<header class="header">
+<header class="header h-card p-contact">
   <div class="header-name">
-    <h1>{{ cv.site.name }}</h1>
+    <h1 class="p-name">{{ cv.site.name }}</h1>
   </div>
 
   <ul class="social-links" aria-label="Social links">
     {% for link in cv.social %}
       <li>
-        <a href="{{ link.url }}" target="_blank" rel="noreferrer" title="{{ link.title }}" class="social-icon-link social-icon-{{ link.title | lower | replace(' ', '-') }}">
+        <a href="{{ link.url }}" target="_blank" rel="me noreferrer" title="{{ link.title }}" class="u-url social-icon-link social-icon-{{ link.title | lower | replace(' ', '-') }}">
           {% if link.kind == "image" %}
             <img class="social-image" src="{{ link.imageUrl }}" alt="{{ link.title }}" />
           {% else %}
@@ -19,18 +19,18 @@
   </ul>
 
   {% if cv.site.image %}
-    <img class="profile-image" src="/{{ cv.site.image }}" alt="{{ cv.site.name }}" />
+    <img class="profile-image u-photo" src="/{{ cv.site.image }}" alt="{{ cv.site.name }}" />
   {% endif %}
 
   <div class="header-details">
-    <p class="subtitle">{{ cv.site.title }}</p>
+    {% if cv.site.title %}<p class="subtitle p-job-title">{{ cv.site.title }}</p>{% endif %}
     <div class="meta">
-      <a href="mailto:{{ cv.site.email }}">{{ cv.site.email }}</a>
-      {% if cv.site.phone %}
-        <a href="tel:{{ cv.site.phone | replace(' ', '') }}">{{ cv.site.phone }}</a>
+      <a class="u-email" href="mailto:{{ cv.site.email }}">{{ cv.site.email }}</a>
+      {% if cv.site.contact.phone %}
+        <a class="p-tel" href="tel:{{ cv.site.contact.phone | replace(' ', '') }}">{{ cv.site.contact.phone }}</a>
       {% endif %}
       {% if cv.site.website %}
-        <a href="{{ cv.site.website }}">{{ cv.site.website }}</a>
+        <a class="u-url" href="{{ cv.site.website }}">{{ cv.site.website }}</a>
       {% endif %}
     </div>
   </div>
