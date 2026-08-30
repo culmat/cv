@@ -19,6 +19,11 @@ layout: layouts/base.njk
   {% set kind = "experience" %}
   {% include "partials/section.njk" %}
 
+  {% set heading = cv.sections.skills.title %}
+  {% set bodyHtml = cv.sections.skills.bodyHtml %}
+  {% set kind = "text" %}
+  {% include "partials/section.njk" %}
+
   {% set heading = cv.sections.community.title %}
   {% set bodyHtml = cv.sections.community.bodyHtml %}
   {% set kind = "text" %}

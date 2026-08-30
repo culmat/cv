@@ -2,7 +2,7 @@
 title: "Rightshore™ manager, software development out of Bangalore/India"
 organization: "SOGETI HIGH TECH, Toulouse"
 organizationLink: "https://www.sogeti.com/"
-period: "October 2007 -August 2008"
+period: "October 2007 - August 2008"
 order: 6
 permalink: false
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Technical Lead Java"
-organization: "Helvetia, Basel"
-organizationLink: "https://helvetia.com"
+organization: "Baloise, Basel"
+organizationLink: "https://www.baloise.com"
 period: "July 2010 - February 2015"
 order: 4
 permalink: false
@@ -9,9 +9,9 @@ permalink: false
 
 Definition and implementation of the technology stack.
 
-Motivation and knowledge management of the java community of 40 engineers.
+Motivation and knowledge management of the Java community of 40 engineers.
 
-Organisation of internal and external events: java lightning, Java User Group CH, code camp, trainings.
+Organisation of internal and external events: Java Lightning, Java User Group CH, code camp, trainings.
 
 Job interviews with all engineers.
 IT project lead

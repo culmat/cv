@@ -8,7 +8,7 @@ const ROOT = resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const CONTENT_ROOT = resolve(ROOT, "src/content");
 const EXPERIENCE_ROOT = resolve(CONTENT_ROOT, "experience");
 
-const requiredFiles = ["about.md", "community.md", "education.md", "contact.md"];
+const requiredFiles = ["about.md", "skills.md", "community.md", "education.md", "contact.md"];
 const requiredFrontmatter = ["title", "order"];
 const requiredExperienceFrontmatter = [
   "title",

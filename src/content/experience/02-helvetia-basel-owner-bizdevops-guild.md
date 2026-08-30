@@ -1,7 +1,7 @@
 ---
 title: "Owner BizDevOps Guild"
-organization: "Helvetia, Basel"
-organizationLink: "https://helvetia.com"
+organization: "Baloise, Basel"
+organizationLink: "https://www.baloise.com"
 period: "June 2019 - November 2024"
 order: 2
 permalink: false

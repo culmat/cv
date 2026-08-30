@@ -54,10 +54,11 @@ async function readExperience() {
 }
 
 export default async function () {
-  const [site, social, about, community, education, contact, experience] = await Promise.all([
+  const [site, social, about, skills, community, education, contact, experience] = await Promise.all([
     import("./site.json", { with: { type: "json" } }).then((mod) => mod.default),
     import("./social.json", { with: { type: "json" } }).then((mod) => mod.default),
     readTextSection("about"),
+    readTextSection("skills"),
     readTextSection("community"),
     readTextSection("education"),
     readTextSection("contact"),
@@ -77,6 +78,7 @@ export default async function () {
     sections: {
       about,
       experience,
+      skills,
       community,
       education,
       contact,

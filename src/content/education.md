@@ -1,6 +1,6 @@
 ---
 title: "Education"
-order: 4
+order: 5
 permalink: false
 ---
 
