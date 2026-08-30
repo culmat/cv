@@ -6,6 +6,7 @@
     <title>{{ title or cv.site.name }}</title>
     {% if cv.site.description %}<meta name="description" content="{{ cv.site.description }}" />{% endif %}
     <meta name="author" content="{{ cv.site.name }}" />
+    {% if noindex %}<meta name="robots" content="noindex" />{% endif %}
     {% if cv.site.website %}<link rel="canonical" href="{{ cv.site.website }}" />{% endif %}
 
     <meta property="og:type" content="profile" />

@@ -4,6 +4,7 @@ import QRCode from "qrcode";
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "images": "images" });
+  eleventyConfig.addPassthroughCopy({ "evidence": "evidence" });
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // Build-time QR code generated from any string, emitted as inline SVG (crisp in
